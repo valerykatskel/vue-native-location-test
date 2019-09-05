@@ -5,7 +5,9 @@
     <text>{{message}}</text>
     <text>{{location.latitude}}</text>
     <text>{{location.longitude}}</text>
-
+    <!-- <map-view class="container"
+      :initial-region="coordinates"
+    /> -->
     <touchable-opacity :on-press="getLocation" >
         <text>get my location</text>
     </touchable-opacity>
@@ -16,19 +18,18 @@
 import { Constants } from 'expo';
 import * as Location from 'expo-location';
 import * as Permissions from 'expo-permissions';
-import { yandexMap, ymapMarker } from 'vue-yandex-maps'
+
 
 
 export default {
-  components: { yandexMap, ymapMarker },
   data: function() {
     return {
-      mapSettings: {
-        apiKey: '',
-        lang: 'ru_RU',
-        coordorder: 'latlong',
-        version: '2.1'
-      },
+      // coordinates: {
+      //   latitude: 12.91074,
+      //   longitude: 77.5996363,
+      //   latitudeDelta: 0.0922,
+      //   longitudeDelta: 0.0421
+      // },
       location: {},
       errorMessage: "",
       message: "...",
@@ -43,9 +44,7 @@ export default {
       ]
     };
   },
-
-  components: {yandexMap, ymapMarker },
-
+  
   methods: {
     getLocation: function() {
       let _self = this;
