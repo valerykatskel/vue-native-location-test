@@ -1,16 +1,22 @@
 <template>
   <view class="container">
-    
-    <text>Координаты:</text>
-    <text>{{message}}</text>
-    <text>{{location.latitude}}</text>
-    <text>{{location.longitude}}</text>
-    <!-- <map-view class="container"
-      :initial-region="coordinates"
-    /> -->
-    <touchable-opacity :on-press="getLocation" >
-        <text>get my location</text>
-    </touchable-opacity>
+    <view class="statusBar"/>
+    <status-bar
+            background-color="red"
+            bar-style="light-content"
+        />
+    <view class="main">
+      <text>Координаты:</text>
+      <text>{{message}}</text>
+      <text>{{location.latitude}}</text>
+      <text>{{location.longitude}}</text>
+      <!-- <map-view class="container"
+        :initial-region="coordinates"
+      /> -->
+      <touchable-opacity :on-press="getLocation" >
+          <text>get my location</text>
+      </touchable-opacity>
+    </view>
   </view>
 </template>
 
@@ -70,11 +76,20 @@ export default {
 </script>
 
 <style>
+.statusBar {
+  backgroundColor: blue;
+  width: 100%;
+  alignSelf: flex-start; 
+  height: 24px;
+}
 .container {
   background-color: white;
   align-items: center;
   justify-content: center;
   flex: 1;
+}
+.main {
+  flex:1;
 }
 .text-color-primary {
   color: blue;
